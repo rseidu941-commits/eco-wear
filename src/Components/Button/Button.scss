@@ -1,0 +1,45 @@
+@use "../../Styles/variables" as *;
+@use "../../Styles/mixins" as *;
+
+.button {
+  @include button;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-sm;
+
+  font-family: $font-body;
+  font-size: $font-md;
+  font-weight: $medium;
+
+  min-width: 170px;
+  height: 50px;
+
+  text-align: center;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid $accent-color;
+    outline-offset: 2px;
+  }
+}
+
+.button--primary {
+  background-color: $primary-color;
+  color: $text-light;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: $text-primary;
+  border: 1px solid $border-color;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
