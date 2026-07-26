@@ -1,0 +1,81 @@
+
+  /* COLORS */
+
+$primary-color: #7B7A45;
+$secondary-color: #F7F4EF;
+$accent-color: #D9C96D;
+
+$background-main: #FAF8F4;
+$background-card: #FFFFFF;
+$background-footer: #7B7A45;
+
+$text-primary: #1F1F1F;
+$text-secondary: #6D6D6D;
+$text-light: #FFFFFF;
+
+$border-color: #E5E1D8;
+
+$hover-color: #686738;
+
+$shadow-color: rgba(0, 0, 0, 0.08);
+
+
+
+  /* TYPOGRAPHY  */
+
+$font-heading: "Playfair Display", serif;
+$font-body: "Inter", sans-serif;
+
+
+   /*FONT SIZES */
+
+$font-xs: 0.75rem;
+$font-sm: 0.875rem;
+$font-md: 1rem;
+$font-lg: 1.25rem;
+$font-xl: 2rem;
+$font-xxl: 3rem;
+
+
+   /*FONT WEIGHTS */
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+
+  /* SPACING */
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+$space-xxxl: 64px;
+
+
+   /* BORDER RADIUS  */
+
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 30px;
+
+
+  /* SHADOW */
+
+$card-shadow: 0 6px 18px rgba(0,0,0,.08);
+
+
+  /* TRANSITIONS */
+
+$transition: 0.3s ease;
+
+
+
+  /* LAYOUT */
+
+$container-width: 1200px;
+$content-width: 1100px;
