@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Button.scss";
+
 
 function Button({ handleClick, children, className = "", type = "button" }) {
   return (
