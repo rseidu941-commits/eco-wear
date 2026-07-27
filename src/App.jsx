@@ -1,22 +1,18 @@
 import "./App.scss";
 import Button from "./Components/Button/Button";
+import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
-import Navbar from "./Components/Navbar/Navbar";
-
-
-
 
 function App() {
-
-
   return (
     <>
-   <Button/>
-   <Navbar/> 
-   <Hero/>
-     
+      <Button />
+
+      <Header />
+
+      <Hero />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
