@@ -1,5 +1,4 @@
-import React from 'react'
- import "./Navbar.scss";
+import "./Navbar.scss";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -7,15 +6,21 @@ function Navbar() {
     <nav className="navbar">
       <ul className="navbar__list">
         <li className="navbar__item">
-          <NavLink to="/products">Products</NavLink>
+          <NavLink to="/products" className="navbar__link">
+            Products
+          </NavLink>
         </li>
 
         <li className="navbar__item">
-          <NavLink to="/dresses">Dresses</NavLink>
+          <NavLink to="/dresses" className="navbar__link">
+            Dresses
+          </NavLink>
         </li>
 
         <li className="navbar__item">
-          <NavLink to="/jewelry">Jewelry</NavLink>
+          <NavLink to="/jewelry" className="navbar__link">
+            Jewelry
+          </NavLink>
         </li>
       </ul>
     </nav>
@@ -23,4 +28,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
