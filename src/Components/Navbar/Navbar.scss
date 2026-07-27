@@ -1,0 +1,77 @@
+@use "../../Styles/variables" as *;
+@use "../../Styles/mixins" as *;
+
+.navbar {
+  @include flex-center;
+}
+
+.navbar__list {
+  @include flex-center;
+  gap: $space-lg;
+}
+
+.navbar__item {
+  list-style: none;
+}
+
+.navbar__link {
+  position: relative;
+
+  display: inline-block;
+
+  font-family: $font-body;
+  font-size: $font-xs;
+  font-weight: $medium;
+  color: $text-primary;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+
+  padding: $space-xs 0;
+
+  transition: $transition;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: $primary-color;
+
+    transition: width $transition;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* ---------- Laptop ---------- */
+
+@include laptop {
+  .navbar__list {
+    gap: $space-md;
+  }
+}
+
+/* ---------- Tablet ---------- */
+
+@include tablet {
+  .navbar__list {
+    gap: $space-sm;
+  }
+
+  .navbar__link {
+    letter-spacing: 0.05rem;
+  }
+}
