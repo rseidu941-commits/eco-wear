@@ -1,0 +1,42 @@
+@use "../../Styles/variables" as *;
+@use "../../Styles/mixins" as *;
+
+.header {
+  width: 100%;
+  background-color: $background-main;
+  padding: $space-lg 0;
+}
+
+.header__container {
+  @include container;
+  @include flex-between;
+}
+
+.header__logo {
+  font-family: $font-heading;
+  font-size: $font-xl;
+  font-weight: $bold;
+  color: $text-primary;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.header__cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $text-primary;
+  text-decoration: none;
+  font-size: $font-xl;
+
+  transition: $transition;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
