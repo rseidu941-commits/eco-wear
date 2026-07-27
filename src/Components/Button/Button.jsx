@@ -1,8 +1,15 @@
-import React from 'react'
+import "./Button.scss";
 
-function Button({text}) {
+function Button({ handleClick, onClick, children, className = "" }) {
+  const handleButtonClick = onClick || handleClick;
+
   return (
-    <button>{text}</button>
+    <button
+      onClick={handleButtonClick}
+      className={`button ${className}`.trim()}
+    >
+      {children}
+    </button>
   );
 }
 
