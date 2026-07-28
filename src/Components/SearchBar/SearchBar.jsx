@@ -1,9 +1,17 @@
- import React from 'react'
- 
- function Searchbar() {
-   return (
-     <div>Searchbar</div>
-   )
- }
- 
- export default Searchbar
+import "./SearchBar.scss";
+
+function SearchBar() {
+  return (
+    <div className="searchbar">
+      <span className="searchbar__icon">🔍</span>
+
+      <input
+        type="text"
+        placeholder="Search..."
+        className="searchbar__input"
+      />
+    </div>
+  );
+}
+
+export default SearchBar;
