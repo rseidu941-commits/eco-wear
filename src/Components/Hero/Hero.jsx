@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import HeroDress from "../../assets/images/midnight silky dress.png";
+
 import "./Hero.scss";
 
 function Hero() {
@@ -29,7 +29,10 @@ function Hero() {
         </div>
 
         <div className="hero__image">
-          <img src={HeroDress} alt="Midnight silky blue sustainable dress" />
+          <img
+            src="/images/midnight-silk-dress.png"
+            alt="Midnight silk blue sustainable dress"
+          />
         </div>
       </div>
     </section>
