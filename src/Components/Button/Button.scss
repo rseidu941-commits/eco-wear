@@ -19,8 +19,8 @@
     border: 1px solid $text-primary;
 
     &:hover {
-      background-color: color.scale($color, $lightness: 17.0758928571%);
-      border-color: color.adjust($color, $lightness: 15%);
+      background-color: color.adjust($text-primary, $lightness: 15%);
+      border-color: color.adjust($text-primary, $lightness: 15%);
       color: $text-light;
     }
   }
@@ -42,8 +42,8 @@
     border: 1px solid $accent-color;
 
     &:hover {
-      background-color: color.scale($color, $lightness: -12.5153374233%); 
-      border-color: color.adjust($color, $lightness: -8%);
+      background-color: color.adjust($accent-color, $lightness: -8%); /* ✅ Fixed variable & clean -8% */
+      border-color: color.adjust($accent-color, $lightness: -8%);    /* ✅ Fixed variable & clean -8% */
     }
   }
 
