@@ -1,0 +1,54 @@
+
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.product-card {
+  background-color: $background-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $card-shadow;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  &__image {
+    @include image-cover;
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__content {
+    @include flex-column;
+    gap: $space-sm;
+    padding: $space-lg;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-lg;
+    font-weight: $medium;
+    color: $text-primary;
+  }
+
+  &__price {
+    font-family: $font-body;
+    font-size: $font-md;
+    font-weight: $regular;
+    color: $primary-color;
+  }
+
+  &__button {
+    margin-top: $space-md;
+  }
+}
