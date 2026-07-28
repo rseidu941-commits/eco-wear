@@ -1,7 +1,7 @@
-// src/components/ProductGrid/ProductGrid.jsx
+ 
 import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import products from "../../data/product"; 
+import products from "../../data/products"; 
 import "./ProductGrid.scss";
 
 function ProductGrid() {
