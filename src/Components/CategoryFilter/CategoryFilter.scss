@@ -1,0 +1,48 @@
+@use "../../Styles/variables" as *;
+@use "../../Styles/mixins" as *;
+
+.category-filter {
+  @include flex-center;
+
+  gap: $space-lg;
+}
+
+.category-filter__list {
+  @include flex-center;
+
+  gap: $space-lg;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-filter__item {
+  margin: 0;
+}
+
+.category-filter__button {
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  font-family: $font-body;
+  font-size: $font-sm;
+  font-weight: $regular;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  color: $text-primary;
+
+  transition: $transition;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.category-filter__button--active {
+  color: $primary-color;
+  font-weight: $medium;
+}
