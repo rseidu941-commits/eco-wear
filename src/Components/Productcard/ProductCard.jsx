@@ -2,6 +2,8 @@ import "./ProductCard.scss";
 import Button from "../Button/Button";
 
 function ProductCard({ product }) {
+ 
+
   return (
     <article className="product-card">
 
