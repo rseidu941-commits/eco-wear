@@ -4,7 +4,7 @@ const products = [
     name: "Midnight Silk Dress",
     category: "Dresses",
     price: 280,
-    image: "..src/..asserts/..images/18kgold-bangle.png",
+    image: "/images/midnight-bangle.png",
   },
 
   {
