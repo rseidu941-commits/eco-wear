@@ -1,0 +1,22 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.featured-products {
+  padding: $space-xxxl 0;
+  background: $background-main;
+
+  &__title {
+    text-align: center;
+    font-family: $font-heading;
+    font-size: $font-xxl;
+    color: $text-primary;
+    margin-bottom: $space-xxl;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    margin-bottom: $space-xxl;
+  }
+}
