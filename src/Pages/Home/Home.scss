@@ -1,0 +1,6 @@
+@use "../../styles/variables" as *;
+
+.home {
+  background-color: $background-main;
+  min-height: 100vh;
+}
