@@ -1,0 +1,172 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.product-detail-page {
+  @include container;
+  padding-top: $space-xl;
+  padding-bottom: $space-xxl;
+
+  &--not-found {
+    @include flex-column;
+    @include flex-center;
+    min-height: 50vh;
+    gap: $space-md;
+
+    h2 {
+      font-family: $font-heading;
+      font-size: $font-xl;
+      color: $text-primary;
+    }
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: $font-body;
+    font-size: $font-sm;
+    color: $text-secondary;
+    text-decoration: none;
+    margin-bottom: $space-xl;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xxl;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__image-container {
+    width: 100%;
+    background-color: $secondary-color;
+    border-radius: $radius-md;
+    border: 1px solid $border-color;
+    box-shadow: $card-shadow;
+    overflow: hidden;
+  }
+
+  &__image {
+    @include image-cover;
+  }
+
+  &__info {
+    @include flex-column;
+    justify-content: center;
+  }
+
+  &__category {
+    font-family: $font-body;
+    font-size: $font-xs;
+    font-weight: $medium;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: $space-xs;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xl;
+    color: $text-primary;
+    margin-bottom: $space-sm;
+  }
+
+  &__price {
+    font-family: $font-body;
+    font-size: $font-lg;
+    font-weight: $bold;
+    color: $primary-color;
+    margin-bottom: $space-md;
+  }
+
+  &__description {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $regular;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: $space-xl;
+  }
+
+  &__counter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-xl;
+
+    .label {
+      font-family: $font-body;
+      font-size: $font-sm;
+      font-weight: $medium;
+      color: $text-primary;
+    }
+  }
+
+  &__add-btn {
+    @include button;
+    width: 100%;
+    background-color: $primary-color;
+    color: $text-light;
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $medium;
+    margin-bottom: $space-lg;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  &__eco-badge {
+    font-family: $font-body;
+    font-size: $font-xs;
+    font-weight: $regular;
+    color: $text-secondary;
+    background-color: $secondary-color;
+    border: 1px solid $border-color;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-sm;
+    width: fit-content;
+  }
+}
+
+
+.counter {
+  display: flex;
+  align-items: center;
+  background-color: $secondary-color;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  padding: $space-xs;
+
+  &__btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: $font-body;
+    font-size: $font-md;
+    font-weight: $bold;
+    color: $text-primary;
+    padding: 0 $space-xs;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__value {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $medium;
+    padding: 0 $space-md;
+    color: $text-primary;
+  }
+}
