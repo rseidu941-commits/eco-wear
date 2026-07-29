@@ -1,0 +1,88 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.join-community {
+  background-color: $primary-color; 
+  padding: $space-xxxl 0;
+  width: 100%;
+  text-align: center;
+
+  &__container {
+    @include container;
+    @include flex-column;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xxl;
+    font-weight: $bold;
+    color: $text-light;
+    margin-bottom: $space-md;
+    letter-spacing: -0.5px;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $light;
+    color: $text-light;
+    opacity: 0.9;
+    max-width: 580px;
+    line-height: 1.6;
+    margin-bottom: $space-xl;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    width: 100%;
+    max-width: 580px;
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 14px $space-lg;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: $radius-sm;
+    font-family: $font-body;
+    font-size: $font-sm;
+    color: $text-light;
+    outline: none;
+    transition: $transition;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:focus {
+      border-color: $text-light;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  &__button {
+    @include button;
+    background-color: $accent-color; 
+    color: $text-primary;
+    font-family: $font-body;
+    font-size: $font-xs;
+    font-weight: $bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: $radius-sm;
+    padding: 16px $space-xl;
+    white-space: nowrap;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
