@@ -3,6 +3,7 @@ import Button from "./Components/Button/Button";
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 
+
 import ProductGrid from "./Components/ProductGrid/ProductGrid";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
       <Hero />
        <Button />
+      
        <ProductGrid/>
        
     </>
