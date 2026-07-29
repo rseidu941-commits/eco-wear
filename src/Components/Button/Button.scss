@@ -42,8 +42,8 @@
     border: 1px solid $accent-color;
 
     &:hover {
-      background-color: color.adjust($accent-color, $lightness: -8%); /* ✅ Fixed variable & clean -8% */
-      border-color: color.adjust($accent-color, $lightness: -8%);    /* ✅ Fixed variable & clean -8% */
+      background-color: color.adjust($accent-color, $lightness: -8%); 
+      border-color: color.adjust($accent-color, $lightness: -8%);    
     }
   }
 

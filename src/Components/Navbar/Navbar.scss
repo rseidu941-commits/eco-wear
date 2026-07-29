@@ -4,7 +4,7 @@
 .navbar {
   display: none;
 
-  /*  Tablet & Desktop */
+  
   @media (min-width: 768px) {
     display: block;
   }
@@ -29,12 +29,11 @@
       text-decoration: none;
       transition: color $transition;
 
-      /* Hover State */
+     
       &:hover {
         color: $text-primary;
       }
 
-      /* Active Link State */
       &.active {
         color: $text-primary;
         font-weight: $bold;
