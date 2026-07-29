@@ -25,32 +25,42 @@ function ProductGrid() {
 
   return (
     <section className="product-grid">
-      <h2 className="product-grid__title">
-        Our Collection
-      </h2>
+      <div className="product-grid__container">
 
-      <div className="product-grid__controls">
+        <h2 className="product-grid__title">
+          Our Collection
+        </h2>
 
-        <CategoryFilter
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
+        <div className="product-grid__controls">
 
-        <SearchBar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
-
-      </div>
-
-      <div className="product-grid__list">
-
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
+          <CategoryFilter
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
           />
-        ))}
+
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
+
+        </div>
+
+        <div className="product-grid__list">
+
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))
+          ) : (
+            <p className="product-grid__empty">
+              No products found.
+            </p>
+          )}
+
+        </div>
 
       </div>
     </section>

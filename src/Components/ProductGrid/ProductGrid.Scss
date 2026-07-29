@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.product-grid {
+  background-color: $background-main;
+  padding: $space-xxxl 0;
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xxl;
+    font-weight: $bold;
+    color: $text-primary;
+    text-align: center;
+    margin-bottom: $space-xxl;
+  }
+
+  &__controls {
+    @include flex-between;
+    gap: $space-lg;
+    margin-bottom: $space-xxl;
+    flex-wrap: wrap;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $space-xl;
+  }
+
+  &__empty {
+    text-align: center;
+    color: $text-secondary;
+    font-family: $font-body;
+    font-size: $font-lg;
+    padding: $space-xxl;
+  }
+}
