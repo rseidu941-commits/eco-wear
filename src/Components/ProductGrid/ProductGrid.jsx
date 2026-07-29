@@ -1,22 +1,17 @@
 import { useState } from "react";
+import ProductCard from "../ProductCard/ProductCard";
+import SearchBar from "../SearchBar/SearchBar";
+import products from "../../data/products";
 import "./ProductGrid.scss";
 
-import products from "../../data/products";
-
-import CategoryFilter from "../CategoryFilter/CategoryFilter";
-import SearchBar from "../SearchBar/SearchBar";
-import ProductCard from "../ProductCard/ProductCard";
-
 function ProductGrid() {
-  const [selectedCategory, setSelectedCategory] = useState("Products");
+  const [selectedCategory, setSelectedCategory] = useState("PRODUCTS");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = products.filter((item) => {
     const matchesCategory =
-      selectedCategory === "Products" ||
-      product.category === selectedCategory;
-
-    const matchesSearch = product.name
+      selectedCategory === "PRODUCTS" || item.category === selectedCategory;
+    const matchesSearch = item.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
 
@@ -26,45 +21,62 @@ function ProductGrid() {
   return (
     <section className="product-grid">
       <div className="product-grid__container">
+        <div className="product-grid__header">
+          <h2 className="product-grid__title">Our Collection</h2>
 
-        <h2 className="product-grid__title">
-          Our Collection
-        </h2>
+          <div className="product-grid__controls">
+            <nav className="product-grid__nav">
+              <button
+                type="button"
+                className={`product-grid__nav-btn ${
+                  selectedCategory === "PRODUCTS"
+                    ? "product-grid__nav-btn--active"
+                    : ""
+                }`}
+                onClick={() => setSelectedCategory("PRODUCTS")}
+              >
+                 PRODUCTS
+              </button>
+              <button
+                type="button"
+                className={`product-grid__nav-btn ${
+                  selectedCategory === "Dresses"
+                    ? "product-grid__nav-btn--active"
+                    : ""
+                }`}
+                onClick={() => setSelectedCategory("Dresses")}
+              >
+                DRESSES
+              </button>
+              <button
+                type="button"
+                className={`product-grid__nav-btn ${
+                  selectedCategory === "Jewelry"
+                    ? "product-grid__nav-btn--active"
+                    : ""
+                }`}
+                onClick={() => setSelectedCategory("Jewelry")}
+              >
+                JEWELRY
+              </button>
+            </nav>
 
-        <div className="product-grid__controls">
-
-          <CategoryFilter
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-
-          <SearchBar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-          />
-
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          </div>
         </div>
 
         <div className="product-grid__list">
-
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-              />
+            filteredProducts.map((item) => (
+              <ProductCard key={item.id} product={item} />
             ))
           ) : (
             <p className="product-grid__empty">
-              No products found.
+              No products matched your search.
             </p>
           )}
-
         </div>
-
       </div>
     </section>
   );
 }
-
-export default ProductGrid;
