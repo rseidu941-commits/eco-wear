@@ -1,9 +1,12 @@
-import React from 'react'
+import "./Products.scss";
+import ProductGrid from "../../components/ProductGrid/ProductGrid";
 
 function Products() {
   return (
-    <div>Products</div>
-  )
+    <main className="products">
+      <ProductGrid />
+    </main>
+  );
 }
 
-export default Products
+export default Products;

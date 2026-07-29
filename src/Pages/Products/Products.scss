@@ -1,0 +1,6 @@
+@use "../../styles/variables" as *;
+
+.products {
+  background-color: $background-main;
+  min-height: 100vh;
+}
