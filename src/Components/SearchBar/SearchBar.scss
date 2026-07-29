@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  background-color: $secondary-color;
+  border: none;
+  border-radius: $radius-xl;
+  padding: $space-xs $space-md;
+  width: 100%;
+  max-width: 200px;
+  transition: background-color $transition, box-shadow $transition;
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+  }
+
+  &__icon {
+    @include flex-center;
+    font-size: $font-xs;
+    margin-right: $space-xs;
+    user-select: none;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: $font-body;
+    font-size: $font-xs;
+    font-weight: $regular;
+    color: $text-primary;
+    width: 100%;
+
+    &::placeholder {
+      color: $text-secondary;
+      font-size: $font-xs;
+    }
+  }
+}
