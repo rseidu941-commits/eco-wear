@@ -1,0 +1,60 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.why-choose {
+  background-color: $secondary-color; // #F7F4EF warm neutral background
+  padding: $space-xxxl 0;
+  width: 100%;
+  text-align: center;
+
+  &__container {
+    @include container;
+    @include flex-column;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xxl;
+    font-weight: $bold;
+    color: $text-primary;
+    margin-bottom: $space-xxxl;
+    letter-spacing: -0.5px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-xxl;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-xl;
+    }
+  }
+
+  &__card {
+    @include flex-column;
+    align-items: center;
+    padding: 0 $space-sm;
+  }
+
+  &__card-title {
+    font-family: $font-heading;
+    font-size: $font-lg;
+    font-weight: $bold;
+    color: $text-primary;
+    margin-bottom: $space-md;
+  }
+
+  &__card-description {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $regular;
+    color: $text-secondary;
+    line-height: 1.6;
+    max-width: 310px;
+    margin: 0 auto;
+  }
+}
