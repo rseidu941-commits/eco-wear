@@ -1,0 +1,87 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.product-grid {
+  background-color: $background-main;
+  padding: $space-xxl 0;
+  width: 100%;
+
+  &__container {
+    @include container;
+    @include flex-column;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: $space-xl;
+    flex-wrap: wrap;
+    gap: $space-md;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xl;
+    font-weight: $bold;
+    color: $text-primary;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: $space-lg;
+    flex-wrap: wrap;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $space-md;
+  }
+
+  &__nav-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $text-primary;
+    opacity: 0.6;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s ease, font-weight 0.2s ease;
+
+    &:hover,
+    &--active {
+      opacity: 1;
+      font-weight: $bold;
+    }
+  }
+
+  &__empty {
+    color: $text-primary;
+    text-align: center;
+    padding: $space-xl 0;
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+    width: 100%;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

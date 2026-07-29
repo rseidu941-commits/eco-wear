@@ -29,7 +29,10 @@ function Hero() {
         </div>
 
         <div className="hero__image">
-          <img src="/images/midnight silk dress.png" alt="Midnight Silk Dress" /> 
+          <img
+            src="/images/midnight-silk-dress.png"
+            alt="Midnight silk blue sustainable dress"
+          />
         </div>
       </div>
     </section>
