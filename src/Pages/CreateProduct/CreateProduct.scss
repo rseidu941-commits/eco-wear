@@ -1,0 +1,126 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.create-product {
+  background-color: $background-main;
+  min-height: 100vh;
+
+  &__container {
+    @include container;
+    padding: $space-xxxl 0;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xxl;
+    font-weight: $bold;
+    color: $text-primary;
+    text-align: center;
+    margin-bottom: $space-xxl;
+  }
+
+  &__form {
+    @include flex-column;
+    gap: $space-lg;
+
+    max-width: 700px;
+    margin: 0 auto;
+
+    padding: $space-xl;
+
+    background-color: $background-card;
+    border-radius: $radius-lg;
+    box-shadow: $card-shadow;
+  }
+
+  &__group {
+    @include flex-column;
+    gap: $space-sm;
+  }
+
+  &__label {
+    font-family: $font-body;
+    font-size: $font-md;
+    font-weight: $medium;
+    color: $text-primary;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+
+    padding: $space-md;
+
+    font-family: $font-body;
+    font-size: $font-md;
+    color: $text-primary;
+
+    background-color: $secondary-color;
+
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(123, 122, 69, 0.15);
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  &__textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+
+  &__hint {
+    font-size: $font-sm;
+    color: $text-secondary;
+    margin-top: $space-xs;
+  }
+
+  &__button {
+    @include button;
+
+    align-self: center;
+
+    width: 220px;
+
+    background-color: $primary-color;
+    color: $text-light;
+
+    font-size: $font-md;
+    font-weight: $bold;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .create-product {
+    &__container {
+      padding: $space-xl 0;
+    }
+
+    &__title {
+      font-size: $font-xl;
+    }
+
+    &__form {
+      padding: $space-lg;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}
