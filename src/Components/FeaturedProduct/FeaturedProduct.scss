@@ -2,21 +2,38 @@
 @use "../../styles/mixins" as *;
 
 .featured-products {
+  background-color: $background-main;
   padding: $space-xxxl 0;
-  background: $background-main;
+
+  &__container {
+    @include container;
+  }
 
   &__title {
-    text-align: center;
     font-family: $font-heading;
     font-size: $font-xxl;
+    font-weight: $bold;
     color: $text-primary;
+    text-align: center;
     margin-bottom: $space-xxl;
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: $space-xl;
-    margin-bottom: $space-xxl;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__button {
+    @include flex-center;
+    margin-top: $space-xxl;
   }
 }
