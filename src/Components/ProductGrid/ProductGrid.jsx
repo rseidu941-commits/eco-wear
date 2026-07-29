@@ -80,3 +80,4 @@ function ProductGrid() {
     </section>
   );
 }
+export default ProductGrid;
