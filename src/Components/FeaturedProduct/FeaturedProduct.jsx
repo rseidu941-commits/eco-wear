@@ -1,4 +1,4 @@
-import "./FeaturedProducts.scss";
+import "./FeaturedProduct.scss";
 import products from "../../data/products";
 import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
@@ -11,7 +11,7 @@ function FeaturedProducts() {
       <div className="featured-products__container">
 
         <h2 className="featured-products__title">
-          Featured Products
+          Our Collection
         </h2>
 
         <div className="featured-products__grid">
