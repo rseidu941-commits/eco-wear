@@ -1,0 +1,205 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.cart-page {
+  @include container;
+  padding-top: $space-xl;
+  padding-bottom: $space-xxl;
+
+  &--empty {
+    @include flex-column;
+    @include flex-center;
+    min-height: 50vh;
+    text-align: center;
+    gap: $space-md;
+
+    h2 {
+      font-family: $font-heading;
+      font-size: $font-xl;
+      color: $text-primary;
+    }
+
+    p {
+      font-family: $font-body;
+      color: $text-secondary;
+      font-size: $font-md;
+    }
+  }
+
+  &__shop-btn {
+    @include button;
+    background-color: $primary-color;
+    color: $text-light;
+    text-decoration: none;
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $medium;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-xl;
+    color: $text-primary;
+    margin-bottom: $space-xl;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__items {
+    @include flex-column;
+    gap: $space-md;
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $background-card;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  box-shadow: $shadow-color;
+  padding: $space-md;
+  gap: $space-md;
+
+  &__image {
+    width: 70px;
+    height: 90px;
+    @include image-cover;
+    border-radius: $radius-sm;
+  }
+
+  &__details {
+    flex: 1;
+  }
+
+  &__category {
+    font-family: $font-body;
+    font-size: $font-xs;
+    font-weight: $medium;
+    color: $text-secondary;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-md;
+    color: $text-primary;
+    margin: $space-xs 0;
+  }
+
+  &__price {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $bold;
+    color: $primary-color;
+  }
+
+  &__quantity {
+    display: flex;
+    align-items: center;
+    background-color: $secondary-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    padding: $space-xs;
+  }
+
+  &__btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: $font-body;
+    font-size: $font-md;
+    font-weight: $bold;
+    color: $text-primary;
+    padding: 0 $space-xs;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__value {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $medium;
+    padding: 0 $space-sm;
+    color: $text-primary;
+  }
+
+  &__remove {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: $font-md;
+    transition: transform $transition;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.cart-summary {
+  background-color: $secondary-color;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  padding: $space-lg;
+  height: fit-content;
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-lg;
+    color: $text-primary;
+    margin-bottom: $space-lg;
+  }
+
+  &__row {
+    @include flex-between;
+    font-family: $font-body;
+    margin-bottom: $space-sm;
+    font-size: $font-sm;
+    color: $text-secondary;
+
+    &--total {
+      font-size: $font-md;
+      font-weight: $bold;
+      color: $text-primary;
+      margin-top: $space-md;
+      margin-bottom: $space-lg;
+    }
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid $border-color;
+    margin: $space-md 0;
+  }
+
+  &__checkout-btn {
+    @include button;
+    width: 100%;
+    background-color: $primary-color;
+    color: $text-light;
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $medium;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}
