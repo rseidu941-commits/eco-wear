@@ -1,0 +1,33 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+  background-color: $secondary-color;
+  border-top: 1px solid $border-color;
+  padding: $space-xxxl 0;
+  width: 100%;
+
+  &__container {
+    @include container;
+    @include flex-column;
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: $font-lg;
+    font-weight: $bold;
+    color: $text-primary;
+    margin-bottom: $space-md;
+  }
+
+  &__description {
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $regular;
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+}
