@@ -1,10 +1,8 @@
+import "./EditProduct.scss";
+
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import "./EditProduct.scss";
-
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
 import { useProducts } from "../../context/ProductContext";
 
 function EditProduct() {
@@ -38,20 +36,16 @@ function EditProduct() {
   if (!product) {
     return (
       <main className="edit-product">
-        <Header />
         <section className="edit-product__container">
           <h1 className="edit-product__title">Product Not Found</h1>
           <p>The product you are trying to edit does not exist.</p>
         </section>
-        <Footer />
       </main>
     );
   }
 
   return (
     <main className="edit-product">
-      <Header />
-
       <section className="edit-product__container">
         <h1 className="edit-product__title">Edit Product</h1>
 
@@ -129,8 +123,6 @@ function EditProduct() {
           </button>
         </form>
       </section>
-
-      <Footer />
     </main>
   );
 }

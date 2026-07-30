@@ -1,10 +1,8 @@
+import "./CreateProduct.scss";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./CreateProduct.scss";
-
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
 import { useProducts } from "../../context/ProductContext";
 
 function CreateProduct() {
@@ -34,8 +32,6 @@ function CreateProduct() {
 
   return (
     <main className="create-product">
-      <Header />
-
       <section className="create-product__container">
         <h1 className="create-product__title">Create Product</h1>
 
@@ -103,8 +99,6 @@ function CreateProduct() {
           </button>
         </form>
       </section>
-
-      <Footer />
     </main>
   );
 }
