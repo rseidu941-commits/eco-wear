@@ -1,26 +1,14 @@
-<div align="center">
+
 
 # Eco Wear
 
 **Sustainable Fashion for a Better Tomorrow**
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
-![Stitch](https://img.shields.io/badge/Stitch-FF3366?style=for-the-badge&logo=stitcher&logoColor=white)
-![Jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-
-</div>
-
----
-
 ## Description
 
 Eco Wear is a sustainable fashion e-commerce platform built with React. It showcases ethically made clothing and accessories crafted from eco-friendly materials. The platform provides a seamless shopping experience with product browsing, category filtering, search, and cart management — all wrapped in a clean, responsive design.
 
----
+
 
 ## Built With
 
@@ -47,54 +35,8 @@ Eco Wear is a sustainable fashion e-commerce platform built with React. It showc
 - **Responsive Design** — Optimized for desktop, tablet, and mobile devices
 - **Sustainability Focus** — Messaging around eco-friendly materials, ethical production, and sustainable packaging
 
----
 
-## Getting Started
 
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18 or later)
-- npm (comes with Node.js)
-
-### Installation
-
-```bash
-npm install
-```
-
-### Development
-
-Start the Vite dev server with hot module replacement:
-
-```bash
-npm run dev
-```
-
-### Build
-
-Create a production-ready build:
-
-```bash
-npm run build
-```
-
-### Preview
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-### Lint
-
-Run the linter (oxlint):
-
-```bash
-npm run lint
-```
-
----
 
 ## Project Structure
 
@@ -165,6 +107,3 @@ This project was designed and managed using industry-standard tools:
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
