@@ -1,11 +1,11 @@
 import "./Home.scss";
 
-import Header from "../../components/Header/Header";
-import Hero from "../../components/Hero/Hero";
-import FeaturedProduct from "../../components/FeaturedProducts/FeaturedProducts";
-import WhyChoose from "../../components/WhyChoose/WhyChoose";
-import JoinOurCommunity from "../../components/JoinOurCommunity/JoinOurCommunity";
-import Footer from "../../components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import Hero from "../../Components/Hero/Hero";
+import FeaturedProduct from "../../Components/FeaturedProduct/FeaturedProduct";
+import WhyChoose from "../../Components/WhyChoose/WhyChoose";
+import JoinOurCommunity from "../../Components/JoinOurCommunity/JoinOurCommunity";
+import Footer from "../../Components/Footer/Footer";
 
 
 function Home() {

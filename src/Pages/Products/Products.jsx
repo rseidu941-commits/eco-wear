@@ -1,7 +1,7 @@
 import "./Products.scss";
-import Header from "./components/Header/Header";
-import ProductGrid from "../../components/ProductGrid/ProductGrid";
-import Footer from "./components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import ProductGrid from "../../Components/ProductGrid/ProductGrid";
+import Footer from "../../Components/Footer/Footer";
 function Products() {
   return (
     <main className="products">

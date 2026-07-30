@@ -18,11 +18,11 @@ function Hero() {
           </p>
 
           <div className="hero__buttons">
-            <NavLink to="/catalog" className="button button--primary">
+            <NavLink to="/products" className="button button--primary">
               View Products
             </NavLink>
 
-            <NavLink to="/catalog" className="button button--secondary">
+            <NavLink to="/products" className="button button--secondary">
               Shop Now
             </NavLink>
           </div>

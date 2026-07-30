@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 import SearchBar from "../SearchBar/SearchBar";
-import products from "../../data/products";
+import { useProducts } from "../../context/ProductContext";
 import "./ProductGrid.scss";
 
 function ProductGrid() {
-  const [selectedCategory, setSelectedCategory] = useState("PRODUCTS");
+  const { products } = useProducts();
+  const location = useLocation();
+  const initialCategory = location.state?.category || "PRODUCTS";
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredProducts = products.filter((item) => {

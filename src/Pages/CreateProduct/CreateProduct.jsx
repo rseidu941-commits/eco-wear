@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./CreateProduct.scss";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import { useProducts } from "../../context/ProductContext";
 
 function CreateProduct() {
+  const { addProduct } = useProducts();
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [category, setCategory] = useState("Dresses");
   const [price, setPrice] = useState("");
@@ -15,21 +21,15 @@ function CreateProduct() {
     event.preventDefault();
 
     const newProduct = {
-      id: Date.now(),
       name,
       category,
-      price,
-      image,
+      price: Number(price),
+      image: image || "/images/midnight-silk-dress.png",
       description,
     };
 
-    console.log(newProduct);
-
-    setName("");
-    setCategory("Dresses");
-    setPrice("");
-    setImage("");
-    setDescription("");
+    addProduct(newProduct);
+    navigate("/products");
   }
 
   return (
@@ -37,19 +37,11 @@ function CreateProduct() {
       <Header />
 
       <section className="create-product__container">
-        <h1 className="create-product__title">
-          Create Product
-        </h1>
+        <h1 className="create-product__title">Create Product</h1>
 
-        <form
-          className="create-product__form"
-          onSubmit={handleSubmit}
-        >
+        <form className="create-product__form" onSubmit={handleSubmit}>
           <div className="create-product__group">
-            <label className="create-product__label">
-              Product Name
-            </label>
-
+            <label className="create-product__label">Product Name</label>
             <input
               className="create-product__input"
               type="text"
@@ -61,10 +53,7 @@ function CreateProduct() {
           </div>
 
           <div className="create-product__group">
-            <label className="create-product__label">
-              Category
-            </label>
-
+            <label className="create-product__label">Category</label>
             <select
               className="create-product__input"
               value={category}
@@ -76,10 +65,7 @@ function CreateProduct() {
           </div>
 
           <div className="create-product__group">
-            <label className="create-product__label">
-              Price (€)
-            </label>
-
+            <label className="create-product__label">Price (€)</label>
             <input
               className="create-product__input"
               type="number"
@@ -91,29 +77,19 @@ function CreateProduct() {
           </div>
 
           <div className="create-product__group">
-            <label className="create-product__label">
-              Image Path
-            </label>
-
+            <label className="create-product__label">Image Path</label>
             <input
               className="create-product__input"
               type="text"
               placeholder="/images/dress1.jpg"
               value={image}
               onChange={(event) => setImage(event.target.value)}
-              required
             />
-
-            <p className="create-product__hint">
-              Example: /images/dress1.jpg
-            </p>
+            <p className="create-product__hint">Example: /images/dress1.jpg</p>
           </div>
 
           <div className="create-product__group">
-            <label className="create-product__label">
-              Description
-            </label>
-
+            <label className="create-product__label">Description</label>
             <textarea
               className="create-product__textarea"
               placeholder="Enter product description"
@@ -122,10 +98,7 @@ function CreateProduct() {
             />
           </div>
 
-          <button
-            className="create-product__button"
-            type="submit"
-          >
+          <button className="create-product__button" type="submit">
             Create Product
           </button>
         </form>

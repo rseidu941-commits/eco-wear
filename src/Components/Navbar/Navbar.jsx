@@ -10,11 +10,19 @@ function Navbar() {
         </li>
 
         <li className="navbar__item">
-          <NavLink to="/dresses">Dresses</NavLink>
+          <NavLink to="/products" state={{ category: "Dresses" }}>
+            Dresses
+          </NavLink>
         </li>
 
         <li className="navbar__item">
-          <NavLink to="/jewelry">Jewelry</NavLink>
+          <NavLink to="/products" state={{ category: "Jewelry" }}>
+            Jewelry
+          </NavLink>
+        </li>
+
+        <li className="navbar__item">
+          <NavLink to="/create">New Product</NavLink>
         </li>
       </ul>
     </nav>

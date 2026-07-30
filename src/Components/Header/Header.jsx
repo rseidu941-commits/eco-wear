@@ -1,11 +1,16 @@
 import "./Header.scss";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-import SearchBar from "../SearchBar/SearchBar";
 import Navbar from "../Navbar/Navbar";
+import { useCart } from "../../context/CartContext";
 
 function Header() {
+  const { cart } = useCart();
+  const location = useLocation();
+  const showNavbar = location.pathname === "/" || location.pathname === "/home";
+  const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <header className="header">
       <div className="header__container">
@@ -13,12 +18,16 @@ function Header() {
           Eco Wear
         </Link>
 
-        <Navbar />
-        <SearchBar />
+        {showNavbar && <Navbar />}
 
-        <Link to="/cart" className="header__cart">
-          🛒
-        </Link>
+        <div className="header__actions">
+          <Link to="/cart" className="header__cart">
+            🛒
+            {itemCount > 0 && (
+              <span className="header__cart-badge">{itemCount}</span>
+            )}
+          </Link>
+        </div>
       </div>
     </header>
   );

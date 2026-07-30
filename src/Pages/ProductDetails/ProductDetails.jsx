@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import "./ProductDetailPage.scss";
+import "./ProductDetails.scss";
+import { useCart } from "../../context/CartContext";
+import { useProducts } from "../../context/ProductContext";
 
-function ProductDetailPage({ products, setCart }) {
+function ProductDetail() {
+  const { products } = useProducts();
+  const { setCart } = useCart();
   const { id } = useParams();
-
   const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
 
   const increase = () => setQuantity((prev) => prev + 1);
   const decrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
@@ -37,6 +41,8 @@ function ProductDetailPage({ products, setCart }) {
 
       return [...prevCart, { ...product, quantity }];
     });
+
+    setAdded(true);
   };
 
   return (
@@ -49,20 +55,17 @@ function ProductDetailPage({ products, setCart }) {
         <div className="product-detail__image-container">
           <img
             src={product.image}
-            alt={product.title}
+            alt={product.name}
             className="product-detail__image"
           />
         </div>
 
         <div className="product-detail__info">
           <span className="product-detail__category">{product.category}</span>
-          <h1 className="product-detail__title">{product.title}</h1>
+          <h1 className="product-detail__title">{product.name}</h1>
           <p className="product-detail__price">${product.price.toFixed(2)}</p>
 
-          <p className="product-detail__description">
-            Crafted from sustainably sourced organic materials designed for
-            everyday elegance and comfort.
-          </p>
+          <p className="product-detail__description">{product.description}</p>
 
           <div className="product-detail__counter-wrapper">
             <span className="label">Quantity:</span>
@@ -88,10 +91,17 @@ function ProductDetailPage({ products, setCart }) {
           <div className="product-detail__eco-badge">
             🌿 100% Organic & Fair Trade Certified
           </div>
+
+          {added && (
+            <Link to="/cart" className="product-detail__view-cart">
+              View Cart in Cart →
+            </Link>
+          )}
+
         </div>
       </div>
     </div>
   );
 }
 
-export default ProductDetailPage;
+export default ProductDetail;

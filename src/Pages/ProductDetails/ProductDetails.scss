@@ -50,10 +50,15 @@
     border: 1px solid $border-color;
     box-shadow: $card-shadow;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__image {
     @include image-cover;
+    background-color: $secondary-color;
+    display: block;
   }
 
   &__info {
@@ -135,6 +140,22 @@
     border-radius: $radius-sm;
     width: fit-content;
   }
+
+  &__view-cart {
+    display: inline-block;
+    font-family: $font-body;
+    font-size: $font-sm;
+    font-weight: $medium;
+    color: $primary-color;
+    text-decoration: none;
+    margin-top: $space-md;
+    transition: color $transition;
+
+    &:hover {
+      color: $hover-color;
+    }
+  }
+
 }
 
 

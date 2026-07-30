@@ -1,31 +1,51 @@
 import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
 import "./EditProduct.scss";
 
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
+import { useProducts } from "../../context/ProductContext";
 
 function EditProduct() {
-  const [name, setName] = useState("Midnight Silk Dress");
-  const [category, setCategory] = useState("Dresses");
-  const [price, setPrice] = useState("280");
-  const [image, setImage] = useState("/images/dress1.jpg");
-  const [description, setDescription] = useState(
-    "Elegant silk evening dress."
-  );
+  const { products, updateProduct, deleteProduct } = useProducts();
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const product = products.find((item) => item.id === Number(id));
+
+  const [name, setName] = useState(product ? product.name : "");
+  const [category, setCategory] = useState(product ? product.category : "Dresses");
+  const [price, setPrice] = useState(product ? String(product.price) : "");
+  const [image, setImage] = useState(product ? product.image : "");
+  const [description, setDescription] = useState(product ? product.description : "");
 
   function handleSubmit(event) {
     event.preventDefault();
 
     const updatedProduct = {
-      id: 1,
       name,
       category,
-      price,
+      price: Number(price),
       image,
       description,
     };
 
-    console.log(updatedProduct);
+    updateProduct(id, updatedProduct);
+    navigate("/products");
+  }
+
+  if (!product) {
+    return (
+      <main className="edit-product">
+        <Header />
+        <section className="edit-product__container">
+          <h1 className="edit-product__title">Product Not Found</h1>
+          <p>The product you are trying to edit does not exist.</p>
+        </section>
+        <Footer />
+      </main>
+    );
   }
 
   return (
@@ -33,19 +53,11 @@ function EditProduct() {
       <Header />
 
       <section className="edit-product__container">
-        <h1 className="edit-product__title">
-          Edit Product
-        </h1>
+        <h1 className="edit-product__title">Edit Product</h1>
 
-        <form
-          className="edit-product__form"
-          onSubmit={handleSubmit}
-        >
+        <form className="edit-product__form" onSubmit={handleSubmit}>
           <div className="edit-product__group">
-            <label className="edit-product__label">
-              Product Name
-            </label>
-
+            <label className="edit-product__label">Product Name</label>
             <input
               className="edit-product__input"
               type="text"
@@ -56,10 +68,7 @@ function EditProduct() {
           </div>
 
           <div className="edit-product__group">
-            <label className="edit-product__label">
-              Category
-            </label>
-
+            <label className="edit-product__label">Category</label>
             <select
               className="edit-product__input"
               value={category}
@@ -71,10 +80,7 @@ function EditProduct() {
           </div>
 
           <div className="edit-product__group">
-            <label className="edit-product__label">
-              Price (€)
-            </label>
-
+            <label className="edit-product__label">Price (€)</label>
             <input
               className="edit-product__input"
               type="number"
@@ -85,10 +91,7 @@ function EditProduct() {
           </div>
 
           <div className="edit-product__group">
-            <label className="edit-product__label">
-              Image Path
-            </label>
-
+            <label className="edit-product__label">Image Path</label>
             <input
               className="edit-product__input"
               type="text"
@@ -96,31 +99,33 @@ function EditProduct() {
               onChange={(event) => setImage(event.target.value)}
               required
             />
-
-            <p className="edit-product__hint">
-              Example: /images/dress1.jpg
-            </p>
+            <p className="edit-product__hint">Example: /images/dress1.jpg</p>
           </div>
 
           <div className="edit-product__group">
-            <label className="edit-product__label">
-              Description
-            </label>
-
+            <label className="edit-product__label">Description</label>
             <textarea
               className="edit-product__textarea"
               value={description}
-              onChange={(event) =>
-                setDescription(event.target.value)
-              }
+              onChange={(event) => setDescription(event.target.value)}
             />
           </div>
 
-          <button
-            className="edit-product__button"
-            type="submit"
-          >
+          <button className="edit-product__button" type="submit">
             Save Changes
+          </button>
+
+          <button
+            type="button"
+            className="edit-product__delete-btn"
+            onClick={() => {
+              if (window.confirm("Are you sure you want to delete this product?")) {
+                deleteProduct(id);
+                navigate("/products");
+              }
+            }}
+          >
+            Delete Product
           </button>
         </form>
       </section>

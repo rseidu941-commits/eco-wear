@@ -1,9 +1,13 @@
 import "./FeaturedProduct.scss";
 import products from "../../data/products";
+
+import { useNavigate } from "react-router-dom";
+
 import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
 
 function FeaturedProducts() {
+  const navigate = useNavigate();
   const featuredProducts = products.slice(0, 4);
 
   return (
@@ -24,7 +28,7 @@ function FeaturedProducts() {
         </div>
 
         <div className="featured-products__button">
-          <Button>
+          <Button onClick={() => navigate("/products")}>
             View All Products
           </Button>
         </div>

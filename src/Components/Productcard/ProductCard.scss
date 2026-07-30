@@ -17,10 +17,12 @@
     width: 100%;
     aspect-ratio: 4 / 5;
     overflow: hidden;
+    background-color: $secondary-color;
   }
 
   &__image {
     @include image-cover;
+    background-color: $secondary-color;
     transition: $transition;
 
     &:hover {
@@ -51,4 +53,5 @@
   &__button {
     margin-top: $space-md;
   }
+
 }

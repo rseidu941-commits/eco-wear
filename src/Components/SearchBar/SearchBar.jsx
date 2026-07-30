@@ -1,6 +1,6 @@
 import "./SearchBar.scss";
 
-function SearchBar() {
+function SearchBar({ searchTerm = "", setSearchTerm = () => {} }) {
   return (
     <div className="searchbar">
       <span className="searchbar__icon">🔍</span>
@@ -9,6 +9,8 @@ function SearchBar() {
         type="text"
         placeholder="Search..."
         className="searchbar__input"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
     </div>
   );
