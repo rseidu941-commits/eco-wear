@@ -1,12 +1,12 @@
 import "./CreateProduct.scss";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { useProducts } from "../../context/ProductContext";
 
 function CreateProduct() {
-  const { addProduct } = useProducts();
+  const { products, addProduct } = useProducts();
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -94,10 +94,33 @@ function CreateProduct() {
             />
           </div>
 
-          <button className="create-product__button" type="submit">
-            Create Product
-          </button>
+          <div className="create-product__actions">
+            <button type="button" className="create-product__cancel" onClick={() => navigate("/products")}>
+              Cancel
+            </button>
+
+            <button className="create-product__button" type="submit">
+              Create Product
+            </button>
+          </div>
         </form>
+      </section>
+
+      <section className="create-product__existing">
+        <div className="create-product__existing-container">
+          <h2 className="create-product__subtitle">Existing Products</h2>
+
+          <ul className="create-product__list">
+            {products.map((product) => (
+              <li key={product.id} className="create-product__item">
+                <span className="create-product__item-name">{product.name}</span>
+                <Link to={`/edit/${product.id}`} className="create-product__edit-link">
+                  Edit
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </main>
   );
